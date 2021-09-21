@@ -82,6 +82,7 @@ class ViewController: UIViewController {
             preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
     // 建立UI
@@ -122,7 +123,7 @@ class ViewController: UIViewController {
         
         button.topAnchor.constraint(equalTo: passwordHint.bottomAnchor, constant: 40).isActive = true
         button.setTitle(Title.button.rawValue, for: .normal)
-        button.backgroundColor = .lightGray
+        button.backgroundColor = .brown
     }
 }
 
