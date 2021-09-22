@@ -70,7 +70,7 @@ class ViewController: UIViewController {
         // 按鈕狀態與顏色設定
         infoValid.bind { [weak self] enable in
             self?.button.isEnabled = enable
-            self?.button.backgroundColor = enable ? UIColor.green : UIColor.red
+            self?.button.backgroundColor = enable ? UIColor.blue : UIColor.lightGray
         }
         .disposed(by: bag)
     }
