@@ -66,12 +66,17 @@ class ViewController: UIViewController {
         // 判斷資訊是否有效 -> 有效才能點擊按鈕
         infoValid.bind(to: button.rx.isEnabled)
                  .disposed(by: bag)
+        
+        infoValid.bind(to: button.backgroundColor = .blue)
     }
     
     private func tapButton() {
         
-        button.rx.tap.subscribe(onNext: { [weak self] in self?.configureAlert() })
+        button.rx.tap.subscribe(onNext: { [weak self] in
+                                    self?.button.backgroundColor = .blue
+                                    self?.configureAlert() })
                     .disposed(by: bag)
+        
     }
     
     private func configureAlert() {
@@ -123,7 +128,6 @@ class ViewController: UIViewController {
         
         button.topAnchor.constraint(equalTo: passwordHint.bottomAnchor, constant: 40).isActive = true
         button.setTitle(Title.button.rawValue, for: .normal)
-        button.backgroundColor = .brown
+        button.backgroundColor = .lightGray
     }
 }
-
