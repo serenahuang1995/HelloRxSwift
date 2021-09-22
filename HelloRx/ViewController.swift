@@ -64,19 +64,21 @@ class ViewController: UIViewController {
                                  .share(replay: 1)
         
         // 判斷資訊是否有效 -> 有效才能點擊按鈕
-        infoValid.bind(to: button.rx.isEnabled)
-                 .disposed(by: bag)
+        // infoValid.bind(to: button.rx.isEnabled)
+        //          .disposed(by: bag)
         
-        infoValid.bind(to: button.backgroundColor = .blue)
+        // 按鈕狀態與顏色設定
+        infoValid.bind { [weak self] enable in
+            self?.button.isEnabled = enable
+            self?.button.backgroundColor = enable ? UIColor.green : UIColor.red
+        }
+        .disposed(by: bag)
     }
     
     private func tapButton() {
         
-        button.rx.tap.subscribe(onNext: { [weak self] in
-                                    self?.button.backgroundColor = .blue
-                                    self?.configureAlert() })
-                    .disposed(by: bag)
-        
+        button.rx.tap.subscribe(onNext: { [weak self] in self?.configureAlert() })
+                     .disposed(by: bag)
     }
     
     private func configureAlert() {
@@ -128,6 +130,5 @@ class ViewController: UIViewController {
         
         button.topAnchor.constraint(equalTo: passwordHint.bottomAnchor, constant: 40).isActive = true
         button.setTitle(Title.button.rawValue, for: .normal)
-        button.backgroundColor = .lightGray
     }
 }
