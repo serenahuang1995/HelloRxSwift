@@ -110,12 +110,13 @@ class ViewController: UIViewController {
         nameTextField.layer.borderColor = UIColor.gray.cgColor
         nameTextField.layer.borderWidth = 1
         
-        nameHint.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20).isActive = true
+        nameHint.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10).isActive = true
         nameHint.text = "Username has to be at least \(minimalLabelLength) characters"
         nameHint.textColor = .red
+        nameHint.font = UIFont.systemFont(ofSize: 14)
 //        nameHint.isHidden = true
         
-        passwordLabel.topAnchor.constraint(equalTo: nameHint.bottomAnchor, constant: 40).isActive = true
+        passwordLabel.topAnchor.constraint(equalTo: nameHint.bottomAnchor, constant: 30).isActive = true
         passwordLabel.text = Title.password.rawValue
         
         passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
@@ -123,12 +124,13 @@ class ViewController: UIViewController {
         passwordTextField.layer.borderColor = UIColor.gray.cgColor
         passwordTextField.layer.borderWidth = 1
         
-        passwordHint.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
+        passwordHint.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 10).isActive = true
         passwordHint.text = "Password has to be at least \(minimalLabelLength) characters"
         passwordHint.textColor = .red
+        passwordHint.font = UIFont.systemFont(ofSize: 14)
 //        passwordHint.isHidden = true
         
-        button.topAnchor.constraint(equalTo: passwordHint.bottomAnchor, constant: 40).isActive = true
+        button.topAnchor.constraint(equalTo: passwordHint.bottomAnchor, constant: 30).isActive = true
         button.setTitle(Title.button.rawValue, for: .normal)
     }
 }
